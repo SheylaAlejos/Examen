@@ -38,6 +38,7 @@ public class RegistroActivity extends AppCompatActivity {
 
         if (usuario.isEmpty() || nombres.isEmpty() || email.isEmpty() || password.isEmpty()){
             Toast.makeText(this, "Registrar todos los campos", Toast.LENGTH_SHORT).show();
+            return;
         }
 
         UserRepository.create(usuario, nombres, email,password);

@@ -1,9 +1,11 @@
 package tecsup.sheyla.com.examen.models;
 
+import com.orm.dsl.Table;
+
 /**
  * Created by Alumno on 20/04/2018.
  */
-
+@Table
 public class User {
     private Long id;
     private String usuario;

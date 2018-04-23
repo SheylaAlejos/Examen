@@ -17,17 +17,20 @@ import tecsup.sheyla.com.examen.models.User;
 import tecsup.sheyla.com.examen.repositories.UserRepository;
 
 public class MainActivity extends AppCompatActivity {
+    private static final int REGISTER_FORM_REQUEST=100;
+    private EditText usuarioInput;
+    private  EditText passwordInput;
+    private ProgressBar progressBar;
 
-Button registrar;
-
+    Button registrar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final EditText nombre =(EditText) findViewById(R.id.nombre);
-        final EditText contraseña =(EditText) findViewById(R.id.contraseña);
-        final Button ingresar = (Button) findViewById(R.id.ingresar);
+        usuarioInput =(EditText) findViewById(R.id.username_input);
+        passwordInput =(EditText) findViewById(R.id.password_input);
+        progressBar = (ProgressBar)findViewById(R.id.progressbar);
 
         registrar=(Button)findViewById(R.id.reg);
         registrar.setOnClickListener(new View.OnClickListener() {
@@ -45,5 +48,38 @@ Button registrar;
 
     }
 
+    public void callLogin(View view) {
+       progressBar.setVisibility(View.VISIBLE);
+
+        String usuario = usuarioInput.getText().toString();
+        String password = passwordInput.getText().toString();
+
+        if (usuario.isEmpty() || password.isEmpty()){
+            Toast.makeText(this, "Debe completar todos los campos", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        //Logica del Login
+
+        User user = UserRepository.login(usuario, password);
+
+        if (user == null) {
+
+            Toast.makeText(this, "El usuario o la cotraseña son invalidos", Toast.LENGTH_LONG).show();
+            progressBar.setVisibility(View.GONE);
+            return;
+        }
+        Toast.makeText(this, "Bienvenido " + user.getNombres(), Toast.LENGTH_LONG).show();
+        goDashboard();
+
+    }
+
+        private void goDashboard(){
+        startActivity(new Intent(this, PerfilActivity.class));
+        finish();
+    }
+    public void callRegisterForm(View view){
+        startActivityForResult(new Intent(this, RegistroActivity.class), REGISTER_FORM_REQUEST);
+    }
 
 }

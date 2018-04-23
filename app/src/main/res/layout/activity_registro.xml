@@ -7,12 +7,13 @@
     tools:context="tecsup.sheyla.com.examen.Activity.RegistroActivity">
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="110dp"
-        tools:ignore="MissingConstraints">
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="52dp"
+        tools:layout_editor_absoluteY="188dp">
 
         <TextView
             android:id="@+id/textView"
@@ -79,12 +80,18 @@
             android:ems="10"
             android:inputType="textPassword" />
 
-        <Button
-            android:id="@+id/registro"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="110dp"
-            android:text="Registrar"
-            android:onClick="callRegister"/>
+
     </LinearLayout>
+
+    <Button
+        android:id="@+id/registro"
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        android:layout_weight="1"
+        android:onClick="callRegister"
+        android:text="Registrar"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </android.support.constraint.ConstraintLayout>

@@ -31,7 +31,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".Activity.RegistroActivity" />
-        <activity android:name=".Activity.PerfilActivity"></activity>
+        <activity android:name=".Activity.PerfilActivity"
+            android:theme="@style/Theme.AppCompat"></activity>
     </application>
 
 </manifest>

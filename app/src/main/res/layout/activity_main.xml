@@ -6,12 +6,6 @@
     android:layout_height="match_parent"
     tools:context="tecsup.sheyla.com.examen.Activity.MainActivity">
 
-    <ProgressBar
-        android:id="@+id/progressbar"
-        style="?android:attr/progressBarStyleLarge"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone"/>
 
     <LinearLayout
         android:id="@+id/login_panel"
@@ -21,11 +15,11 @@
         android:padding="32dp">
 
         <ImageView
-            android:layout_width="64dp"
-            android:layout_height="64dp"
+            android:layout_width="196dp"
+            android:layout_height="227dp"
             android:layout_gravity="center"
             android:layout_marginBottom="16dp"
-            android:src="@mipmap/ic_launcher" />
+            android:src="@drawable/ic_detective" />
 
         <LinearLayout
             android:layout_width="321dp"
@@ -41,7 +35,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="16dp"
-                    android:hint="Username"
+                    android:hint="Usario"
                     android:inputType="text"
                     android:maxLines="1" />
 
@@ -69,6 +63,7 @@
                 android:background="@color/colorPrimary"
                 android:onClick="callLogin"
                 android:text="Ingresar"
+                android:textAlignment="center"
                 android:textColor="@android:color/white"
                 android:textStyle="bold" />
 
@@ -76,13 +71,21 @@
                 android:id="@+id/reg"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="15sp"
                 android:background="@color/colorPrimary"
                 android:text="Registrarse"
-                android:layout_marginTop="15sp"
+                android:textAlignment="center"
                 android:textColor="@android:color/background_light"
                 android:textStyle="bold" />
 
         </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/progressbar"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
 
     </LinearLayout>
 

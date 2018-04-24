@@ -7,6 +7,8 @@ import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -33,13 +35,26 @@ public class PerfilActivity extends AppCompatActivity {
         // get username from SharedPreferences
 
         String usuario = sharedPreferences.getString("nombres", null);
-
-
-
-
-
     }
-    public void callLogout(View view) {
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id=item.getItemId();
+        switch (id){
+            case R.id.action_logout:
+            callLogout();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    public void callLogout() {
         // remove from SharedPreferences
         SharedPreferences.Editor editor = sharedPreferences.edit();
         boolean success = editor.putBoolean("islogged", false).commit();
@@ -49,7 +64,8 @@ public class PerfilActivity extends AppCompatActivity {
     private void gomail(){
         startActivity(new Intent(this, MainActivity.class));
         finish();
-    };
+    }
+
     }
 
 
